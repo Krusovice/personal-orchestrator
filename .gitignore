@@ -1,0 +1,6 @@
+# Python
+__pycache__/
+node_modules/
+
+# Airflow
+airflow/logs/

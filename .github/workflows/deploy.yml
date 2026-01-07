@@ -1,0 +1,28 @@
+name: Deploy Personal Airflow
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-personal-airflow
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy stack
+        env:
+          ENV_FILE: /home/user/secrets-and-database/.env.prod
+        run: |
+          test -f "$ENV_FILE" || (echo "Missing $ENV_FILE on runner" && exit 1)
+
+          docker compose --env-file "$ENV_FILE" pull
+          docker compose --env-file "$ENV_FILE" down --remove-orphans || true
+          docker compose --env-file "$ENV_FILE" up -d
