@@ -55,7 +55,7 @@ services:
     container_name: airflow_init
     user: "${HOST_UID}:0"
     env_file:
-      - .env
+      - ${ENV_FILE}
     environment:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres/airflow_db
     entrypoint: /bin/bash
