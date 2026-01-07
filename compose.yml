@@ -2,7 +2,7 @@ x-airflow-common: &airflow-common
   image: apache/airflow:2.10.5
   user: "${HOST_UID}:0"
   env_file:
-    - .env
+    - ${ENV_FILE}
   environment: &airflow-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres/airflow_db
