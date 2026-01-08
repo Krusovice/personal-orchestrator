@@ -1,0 +1,22 @@
+metadata:
+  "^OMXC25":
+    name: "C25"
+    currency: "DKK"
+  "MSFT":
+    name: "Microsoft"
+    currency: "USD"
+  "TSLA":
+    name: "Tesla"
+    currency: "USD"
+  "NOVO-B.CO":
+    name: "Novo Nordisk"
+    currency: "DKK"
+  "ALK-B.CO":
+    name: "ALK"
+    currency: "DKK"
+  "PAAL-B.CO":
+    name: "Per Aarsleff"
+    currency: "DKK"
+
+defaults:
+  start_date: "2025-01-01"
