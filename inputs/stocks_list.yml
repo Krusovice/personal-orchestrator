@@ -17,6 +17,71 @@ metadata:
   "PAAL-B.CO":
     name: "Per Aarsleff"
     currency: "DKK"
+  "NVDA":
+    name: "NVIDIA"
+    currency: "USD"
+  "GOOGL":
+    name: "Alphabet"
+    currency: "USD"
+  "CAT":
+    name: "Caterpillar"
+    currency: "USD"
+  "LUN.CO":
+    name: "Lundbeck B"
+    currency: "DKK"
+  "ORK.OL":
+    name: "Orkla A"
+    currency: "NOK"
+  "SU.PA":
+    name: "Schneider Electric"
+    currency: "EUR"
+  "JYSK.CO":
+    name: "Jyske Bank"
+    currency: "DKK"
+  "DSV.CO":
+    name: "DSV"
+    currency: "DKK"
+  "LLY":
+    name: "Eli Lilly & Co"
+    currency: "USD"
+  "TRYG.CO":
+    name: "Tryg A/S"
+    currency: "DKK"
+  "NSIS-B.CO":
+    name: "Novonesis"
+    currency: "DKK"
+  "NKT.CO":
+    name: "NKT"
+    currency: "DKK"
+  "ROCK-B.CO":
+    name: "Rockwool B"
+    currency: "DKK"
+  "FLS.CO":
+    name: "FLSmidth & Co"
+    currency: "DKK"
+  "ASML":
+    name: "ASML"
+    currency: "EUR"
+  "GN.CO":
+    name: "GN Store Nord"
+    currency: "DKK"
+  "GMAB":
+    name: "Genmab"
+    currency: "USD"
+  "DNORD.CO":
+    name: "D/S Norden"
+    currency: "DKK"
+  "COLO-B.CO":
+    name: "Coloplast"
+    currency: "DKK"
+  "DEMANT.CO":
+    name: "Demant A/S"
+    currency: "DKK"
+  "NETC.CO":
+    name: "Netcompany"
+    currency: "DKK"
+
+
 
 defaults:
   start_date: "2025-01-01"
