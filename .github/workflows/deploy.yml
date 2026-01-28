@@ -17,9 +17,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build Airflow + rclone image
-        run: docker build -t airflow-rclone:2.10.5 -f airflow/Dockerfile .
-
       - name: Deploy stack
         env:
           ENV_FILE: /home/user/secrets-and-database/.env.prod
@@ -32,4 +29,4 @@ jobs:
           
           docker compose --env-file "$ENV_FILE" pull
           docker compose --env-file "$ENV_FILE" down --remove-orphans || true
-          docker compose --env-file "$ENV_FILE" up -d
+          docker compose --env-file "$ENV_FILE" up -d --build
