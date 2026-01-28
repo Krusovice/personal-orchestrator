@@ -17,16 +17,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy stack
+      - name: Build images
         env:
           ENV_FILE: /home/user/secrets-and-database/.env.prod
         run: |
           test -f "$ENV_FILE" || (echo "Missing $ENV_FILE on runner" && exit 1)
-
+        
           mkdir -p ./airflow/logs ./airflow/plugins
           sudo chown -R 1000:0 ./airflow/logs ./airflow/plugins
           sudo chmod -R u+rwX,g+rwX ./airflow/logs ./airflow/plugins
           
           docker compose --env-file "$ENV_FILE" pull
           docker compose --env-file "$ENV_FILE" down --remove-orphans || true
-          docker compose --env-file "$ENV_FILE" up -d --build
+          docker compose --env-file "$ENV_FILE" build
+
+
+      - name: Deploy stack
+        env:
+          ENV_FILE: /home/user/secrets-and-database/.env.prod
+        run: |
+          test -f "$ENV_FILE" || (echo "Missing $ENV_FILE on runner" && exit 1)
+
+          docker compose --env-file "$ENV_FILE" up -d
