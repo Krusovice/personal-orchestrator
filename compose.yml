@@ -1,7 +1,7 @@
 x-airflow-common: &airflow-common
   build:
     context: .
-    dockerfile: airflow/Dockerfile
+    dockerfile: ./airflow/Dockerfile
   image: airflow-rclone:2.10.5
   user: "${HOST_UID}:0"
   env_file:
