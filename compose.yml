@@ -41,6 +41,10 @@ services:
     container_name: airflow_scheduler
     command: [ "bash", "-c", "pip install -r /requirements.txt && exec airflow scheduler" ]
     volumes:
+      - ./airflow/dags:/opt/airflow/dags:ro
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./airflow/requirements.txt:/requirements.txt
       - ./inputs:/inputs
       - /home/user/secrets-and-database:/data/secrets-and-database
       - /home/user/.config/rclone:/home/airflow/.config/rclone:ro
