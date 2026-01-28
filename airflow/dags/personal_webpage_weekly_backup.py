@@ -3,9 +3,8 @@ from airflow.operators.bash import BashOperator
 from datetime import datetime
 
 # === Config ===
-LOCAL_FOLDER = "/home/pi/user/secrets-and-database"
+LOCAL_FOLDER = "/home/user/secrets-and-database"
 REMOTE_FOLDER = "gdrive:personal-webpage-backups/secrets-and-database"
-LOG_FILE = "/home/pi/logs/gdrive_backup.log"
 
 with DAG(
     dag_id="personal_webpage_weekly_backup",
@@ -22,7 +21,6 @@ with DAG(
         rclone sync "{LOCAL_FOLDER}" "{REMOTE_FOLDER}" \
             --progress \
             --log-level INFO \
-            --log-file "{LOG_FILE}" \
             --stats 10s
         """
     )
