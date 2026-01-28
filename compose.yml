@@ -1,5 +1,8 @@
 x-airflow-common: &airflow-common
-  image: apache/airflow:2.10.5
+  build:
+    context: .
+    dockerfile: airflow/Dockerfile
+  image: airflow-rclone:2.10.5
   user: "${HOST_UID}:0"
   env_file:
     - ${ENV_FILE}
@@ -39,11 +42,10 @@ services:
     container_name: airflow_scheduler
     command: [ "bash", "-c", "pip install -r /requirements.txt && exec airflow scheduler" ]
     volumes:
-      - ./airflow/dags:/opt/airflow/dags:ro
-      - ./airflow/logs:/opt/airflow/logs
-      - ./airflow/plugins:/opt/airflow/plugins
-      - ./airflow/requirements.txt:/requirements.txt
       - ./inputs:/inputs
+      - /home/user/secrets-and-database:/data/secrets-and-database
+      - /home/user/.config/rclone:/home/airflow/.config/rclone:ro
+
 
   airflow-cli:
     <<: *airflow-common

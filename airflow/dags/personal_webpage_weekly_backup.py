@@ -3,7 +3,7 @@ from airflow.operators.bash import BashOperator
 from datetime import datetime
 
 # === Config ===
-LOCAL_FOLDER = "/home/user/secrets-and-database"
+LOCAL_FOLDER = "/data/secrets-and-database"
 REMOTE_FOLDER = "gdrive:personal-webpage-backups/secrets-and-database"
 
 with DAG(

@@ -17,6 +17,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build Airflow + rclone image
+        run: docker build -t airflow-rclone:2.10.5 .
+
       - name: Deploy stack
         env:
           ENV_FILE: /home/user/secrets-and-database/.env.prod
