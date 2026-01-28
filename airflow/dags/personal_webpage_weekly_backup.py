@@ -19,7 +19,6 @@ with DAG(
     backup_task = BashOperator(
         task_id="sync_folder_to_gdrive",
         bash_command=f"""
-        mkdir -p $(dirname "{LOG_FILE}")
         rclone sync "{LOCAL_FOLDER}" "{REMOTE_FOLDER}" \
             --progress \
             --log-level INFO \
