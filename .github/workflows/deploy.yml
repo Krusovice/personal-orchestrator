@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Airflow + rclone image
-        docker build -t airflow-rclone:2.10.5 -f airflow/Dockerfile .
+        run: docker build -t airflow-rclone:2.10.5 -f airflow/Dockerfile .
 
       - name: Deploy stack
         env:
