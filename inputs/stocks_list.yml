@@ -26,9 +26,6 @@ metadata:
   "CAT":
     name: "Caterpillar"
     currency: "USD"
-  "LUN.CO":
-    name: "Lundbeck B"
-    currency: "DKK"
   "ORK.OL":
     name: "Orkla A"
     currency: "NOK"
